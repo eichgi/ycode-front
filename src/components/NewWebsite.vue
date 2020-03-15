@@ -50,7 +50,8 @@
         methods: {
             async submit() {
                 try {
-                    let response = await this.$axios.post('http://localhost:8000/api/websites', this.form);
+                    const url = process.env.VUE_APP_API_URL;
+                    let response = await this.$axios.post(`${url}/api/websites`, this.form);
                     this.response = response.data.message;
                     for (let key in this.form) {
                         this.form[key] = '';

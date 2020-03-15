@@ -81,7 +81,7 @@
         },
         methods: {
             async getWebsites() {
-                const url = 'http://localhost:8000';
+                const url = process.env.VUE_APP_API_URL;
                 try {
                     let response = await this.$axios.get(`${url}/api/websites?filter=${this.query}&name=${this.orderByName}&created=${this.orderByCreated}&page=${this.page}`);
                     if (response.data.status) {
